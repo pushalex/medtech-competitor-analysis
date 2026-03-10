@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MedAnalyze AI | Мониторинг конкурентов</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app">
+        <aside class="sidebar">
+            <div class="logo"><span>MedAnalyze AI</span></div>
+            <nav class="nav">
+                <button class="nav-btn active" data-tab="content-tab">Анализ контента</button>
+                <button class="nav-btn" data-tab="images-tab">Анализ изображений</button>
+                <button class="nav-btn" data-tab="links-tab">Анализ ссылок</button>
+                <button class="nav-btn" data-tab="history-tab">История</button>
+            </nav>
+        </aside>
+
+        <main class="main">
+            <header class="header">
+                <h1 class="page-title">Мониторинг конкурентов</h1>
+            </header>
+
+            <div class="content">
+                <section id="content-tab" class="tab-content active">
+                    <div class="card">
+                        <div class="card-body">
+                            <textarea id="raw-text" rows="5" placeholder="Вставьте текст для анализа..."></textarea>
+                            <button class="btn btn-primary" id="analyze-text-btn" style="width:100%; margin:15px 0;">Анализировать текст</button>
+                            
+                            <div class="upload-zone" id="pdf-upload-zone" onclick="document.getElementById('pdf-input').click()">
+                                <div id="pdf-upload-content">Кликните для выбора <span>PDF</span></div>
+                                <div id="pdf-preview" hidden>
+                                    <span id="pdf-name"></span>
+                                </div>
+                                <input type="file" id="pdf-input" accept=".pdf" hidden>
+                            </div>
+                            <button class="btn btn-secondary" id="analyze-pdf-btn" style="width:100%; margin-top:15px;" disabled>Анализировать PDF</button>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="images-tab" class="tab-content">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="upload-zone" id="image-upload-zone" onclick="document.getElementById('image-input').click()">
+                                <div id="image-upload-content">Загрузите <span>фото рекламы</span></div>
+                                <div id="image-preview" hidden>
+                                    <img id="preview-img" style="max-width:100px; display:block; margin: 0 auto 10px;">
+                                </div>
+                                <input type="file" id="image-input" accept="image/*" hidden>
+                            </div>
+                            <button class="btn btn-primary" id="analyze-image-btn" style="width:100%; margin-top:15px;" disabled>Анализировать фото</button>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="links-tab" class="tab-content">
+                    <div class="card">
+                        <div class="card-body">
+                            <p>Запуск автоматического анализа сайтов конкурентов, указанных в настройках.</p>
+                            <button class="btn btn-primary" id="run-parse-demo" style="width:100%;">Запустить демо-парсинг</button>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="history-tab" class="tab-content">
+                    <div class="card">
+                        <div class="card-body" id="history-list">Загрузка истории...</div>
+                    </div>
+                </section>
+
+                <div id="results-area" class="results-section" hidden>
+                    <div class="card">
+                        <div class="card-header"><h2>Результат анализа</h2></div>
+                        <div class="card-body" id="analysis-results"></div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <div class="loading-overlay" id="loading-overlay" style="display:none;">
+        <div class="spinner"></div>
+    </div>
+
+    <script src="/static/app.js"></script>
+</body>
+</html>

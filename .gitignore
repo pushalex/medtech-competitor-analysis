@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.py[cod]
+
+# Virtual env
+.venv/
+venv/
+ENV/
+env/
+.env
+*.spec
+history.json
+data
+.data
+data/
+desktop
+
+# IDE
+.idea/
+.vscode/
+
+# Builds / binaries
+dist/
+build/
+*.exe
+
+# OS junk
+.DS_Store
+Thumbs.db
